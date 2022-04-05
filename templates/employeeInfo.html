@@ -122,7 +122,7 @@ and open the template in the editor.
                     <input type="text" placeholder="Search.." name="search" id='myInput'>
                     <button type="submit"  class="btn success">Submit</button>
                 </form></br></br>
-                <form action='/addEmpPage'><input type='submit' value='Add New Employee' class="btn default"></form>
+                <form action='/addEmpPage'><button type='submit' value='Add New Employee' class="btn default"></button></form>
                 <form action="/fetchdata" autocomplete="on" method="POST">
                 <table>
                     <tr>
@@ -149,12 +149,13 @@ and open the template in the editor.
                         <td>{{ row[7] }}</td>
                         <td>{{ row[8] }}</td>
                         <td>{{ row[9] }}</td>
+                        </form>   
                     <form action='/editEmp' method='post'><td><input type='submit' value='Edit' class="btn warning"><input type='hidden' name='emp_id' value='{{ row[0] }}'></td></form>
                     <form action='/deleteEmp'  method='post'><td><input type='submit' value='Delete' class="btn danger"><input type='hidden' name='emp_id' value='{{ row[0] }}'></td></text></form>
                     </tr>
                     {% endfor %}
                 </table>
-            </form>   
+            
         </div>
     </body>
 </html>
