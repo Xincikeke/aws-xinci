@@ -30,7 +30,7 @@ def home():
 def addEmpPage():
     return render_template('addEmp.html')
 
-@app.route("/editEmp", methods=['POST'])
+@app.route("/editEmpPage", methods=['POST'])
 def editEmpPage():
     return render_template('editEmp.html')
 
