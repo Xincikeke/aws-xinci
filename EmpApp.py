@@ -40,7 +40,6 @@ def editEmpPage():
 
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
-    
     first_name = request.form['firstname']
     last_name = request.form['lastname']
     pri_skill = request.form['pri_skill']
@@ -95,7 +94,6 @@ def AddEmp():
 # edit #
 @app.route("/editEmp", methods=['POST'])
 def editEmp():
-    
     emp_id = request.form['emp_id']
     first_name = request.form['firstname']
     last_name = request.form['lastname']
