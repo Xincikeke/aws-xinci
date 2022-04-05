@@ -151,7 +151,7 @@ and open the template in the editor.
                         <td>{{ row[9] }}</td>
                         </form>   
                     <form action='/editEmpPage' method='post'><td><input type='submit' value='Edit' class="btn warning"><input type='hidden' name='emp_id' value='{{ row[0] }}'></td></form>
-                    <form action='/deleteEmp'  method='post'><td><input type='submit' value='Delete' class="btn danger"><input type='hidden' name='emp_id' value='{{ row[0] }}'></td></text></form>
+                    <form action='/deleteEmp'  method='post'><td><input type='submit' value='Delete' class="btn danger"><input type='hidden' name='emp_id' value='{{ row[0] }}'></td></form>
                     </tr>
                     {% endfor %}
                 </table>
