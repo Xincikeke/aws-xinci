@@ -64,7 +64,7 @@
         <!--end nav--></br>
         <div align='center' class='layout'>.<h1>Edit Employee</h1>
             
-            <form action="/editEmp">
+            <form action="/editEmp"  autocomplete="on" method="POST" enctype="multipart/form-data">
                 <label for="fname">Employee ID</label>
                 <input type="text" id="emp_id" name="firstname" value={{ first_name}}>
                 </br></br>
@@ -89,8 +89,8 @@
                 <label for="country">Hiring Date</label>
                 value={{ hiringDate }}
                 </br></br>
-                <input autocomplete="on"  type=file name="emp_image_file" style="height:25px;font-size:14pt;"> <br><br>
-                <input autocomplete="on"  type="submit" value="Update">
+                <input   type=file name="emp_image_file" style="height:25px;font-size:14pt;"> <br><br>
+                <input  type="submit" value="Update">
             </form>
         </div>
 
