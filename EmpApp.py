@@ -164,7 +164,7 @@ def deleteEmp():
     cursor.execute(del_sql, (emp_id))
     db_conn.commit()
     cursor.close()
-    return render_template('Home.html')
+    return render_template('employeeInfo.html')
 
 
 
