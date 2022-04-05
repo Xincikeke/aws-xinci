@@ -46,14 +46,13 @@ def AddEmp():
     pri_skill = request.form['pri_skill']
     email = request.form['emailAdd']
     cotactNum = request.form['homeAdd']
-    hiringDate = request.form['hiringDate']
     homeAdd = request.form['homeAdd']
     hiringDate = request.form['hiringDate']
     payrollID = request.form['payrollID']
     attdID = request.form['attdID']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -130,6 +129,32 @@ def fetchdata():
     cursor.execute("SELECT * FROM employee")
     i = cursor.fetchall()
     return render_template('employeeInfo.html', data=i)
+
+
+@app.route("/showData", methods=['POST'])
+def showData():
+
+    emp_id = request.form['emp_id']
+    select_employee_query = "SELECT emp_id, last_name, first_name, emailAddress,phoneNum, homeAdd, pri_skill, payRollID,attendanceID, hiringDate FROM attendance WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+    
+    cursor.execute(select_employee_query,(emp_id))
+    db_conn.commit()
+    
+    for i in cursor:
+       emp_id = i[0]
+       last_name = i[1]
+       first_name = i[2]
+       emailAddress = i[3]
+       phoneNum = i[4]
+       homeAdd = i[5]
+       pri_skill = i[6]
+       payRollID = i[7]
+       attendanceID = i[8]
+       hiringDate = i[9]
+       
+    cursor.close()   
+    return render_template('GetEmpOutput.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, , payRollID=payRollID, hiringDate=hiringDate)
 
 # search  #
 
