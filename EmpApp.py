@@ -124,7 +124,7 @@ def editEmp():
     return render_template('editEmpOutput.html', name=emp_name)
 
 #retreve#
-@app.route("/empInfo",methods=['POST'])
+@app.route("/fetchdata",methods=['POST'])
 def fetchdata():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM employee")
