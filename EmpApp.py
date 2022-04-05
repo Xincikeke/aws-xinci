@@ -155,6 +155,16 @@ def showData():
 # search  #
 
 
+#delete#
+@app.route("/deleteEmp", methods=['GET', 'POST'])
+def deleteEmp():
+    emp_id = request.form['emp_id']
+    del_sql = "DELETE FROM employee WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(del_sql, (emp_id))
+    db_conn.commit()
+    cursor.close()
+    return render_template('Home.html')
 
 
 
