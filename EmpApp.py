@@ -124,7 +124,7 @@ def editEmp():
 
 #retreve#
 @app.route("/fetchdata",methods=['POST'])
-def fetchdata():
+def empInfoPage():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM employee")
     i = cursor.fetchall()
