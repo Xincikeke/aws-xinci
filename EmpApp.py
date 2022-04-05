@@ -25,9 +25,6 @@ table = 'employee'
 def home():
     return render_template('index.html')
 
-@app.route("/fetchdata", methods=['GET', 'POST'])
-def empInfoPage():
-    return render_template('employeeInfo.html')
 
 @app.route("/addEmpPage", methods=['GET', 'POST'])
 def addEmpPage():
