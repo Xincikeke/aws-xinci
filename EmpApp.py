@@ -124,7 +124,7 @@ def editEmp():
 @app.route("/fetchdata",methods=['POST'])
 def fetchdata():
     cursor = db_conn.cursor()
-    cursor.execute("SELECT * FROM employee")
+    cursor.execute("SELECT emp_id, last_name, first_name, emailAddress,phoneNum, homeAdd, pri_skill, payRollID,attendanceID, hiringDate FROM employee")
     i = cursor.fetchall()
     return render_template('employeeInfo.html', data=i)
 
@@ -133,7 +133,7 @@ def fetchdata():
 def showData():
 
     emp_id = request.form['emp_id']
-    select_employee_query = "SELECT emp_id, last_name, first_name, emailAddress,phoneNum, homeAdd, pri_skill, payRollID,attendanceID, hiringDate FROM attendance WHERE emp_id = %s"
+    select_employee_query = "SELECT emp_id, last_name, first_name, emailAddress,phoneNum, homeAdd, pri_skill, payRollID,attendanceID, hiringDate FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
     
     cursor.execute(select_employee_query,(emp_id))
