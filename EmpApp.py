@@ -37,7 +37,7 @@ def editEmpPage():
 
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
-    
+    emp_id=""
     first_name = request.form['firstname']
     last_name = request.form['lastname']
     pri_skill = request.form['pri_skill']
@@ -49,7 +49,7 @@ def AddEmp():
     attdID = request.form['attdID']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s,%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -57,7 +57,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (first_name, last_name, email, cotactNum, homeAdd, pri_skill, payrollID, attdID, hiringDate))
+        cursor.execute(insert_sql, (emp_id,first_name, last_name, email, cotactNum, homeAdd, pri_skill, payrollID, attdID, hiringDate))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
