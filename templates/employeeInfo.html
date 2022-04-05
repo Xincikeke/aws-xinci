@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee info</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">LWY Human Resources System </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="employeeInfo.html">Employees Info </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="attendance.html">Attendance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="payroll.html">Payroll</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!----nav bar-->
+        <div align="center" >
+            <form action="/fetchdata" method="POST">
+                <style>
+                    table {
+                        border-collapse: collapse;
+                        width: 80%;
+                    }
+
+                    th, td {
+                        padding: 8px;
+                        text-align: left;
+                        border-bottom: 1px solid #DDD;
+                    }
+
+                    tr:hover {background-color: #D6EEEE;}
+                    .btn {
+                        border: none;
+                        color: white;
+                        padding: 14px 28px;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+
+                    .success {background-color: #04AA6D;} /* Green */
+                    .success:hover {background-color: #46a049;}
+
+                    .info {background-color: #2196F3;} /* Blue */
+                    .info:hover {background: #0b7dda;}
+
+                    .warning {background-color: #ff9800;} /* Orange */
+                    .warning:hover {background: #e68a00;}
+
+                    .danger {background-color: #f44336;} /* Red */ 
+                    .danger:hover {background: #da190b;}
+
+                    .default {background-color: #e7e7e7; color: black;} /* Gray */ 
+                    .default:hover {background: #ddd;}
+                    #myInput {
+                        background-image: url('/css/searchicon.png');
+                        background-position: 10px 12px;
+                        background-repeat: no-repeat;
+                        width: 15%;
+                        font-size: 16px;
+                        padding: 12px 20px 12px 40px;
+                        border: 1px solid #ddd;
+                        margin-bottom: 12px;
+                    }
+                </style></br>
+                <h2>Employees</h2>
+                <form action="#">
+                    <input type="text" placeholder="Search.." name="search" id='myInput'>
+                    <button type="submit"  class="btn success">Submit</button>
+                </form></br></br>
+                <form action='#'><input type='submit' value='Add New Employee' class="btn default"></form>
+                <table>
+                    <tr>
+                        <th>Employee's id</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email Address</th>
+                        <th>Contact number</th>
+                        <th>Home address</th>
+                        <th>Primary Skill</th>
+                        <th>Hiring Date</th>
+                    </tr>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row[0] }}</td>                                                                                                           
+                        <td>{{ row[1] }}</td>                                                                                                             
+                        <td>{{ row[2] }}</td>                                                                                                         
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                        <td>{{ row[6] }}</td>
+                        <td>{{ row[7] }}</td>
+                    <form action='/editEmp'><td><input type='submit' value='Edit' class="btn warning"></td></form>
+                    <form action='/deleteEmp'><td><input type='submit' value='Delete' class="btn danger"></td></form>
+                    </tr>
+                    {% end for %}
+                </table>
+            </form>   
+        </div>
+    </body>
+</html>
