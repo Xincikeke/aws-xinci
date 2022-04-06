@@ -150,8 +150,8 @@ and open the template in the editor.
                         <td>{{ attendanceID }}</td>
                         <td>{{ hiringDate }}</td>
                         </form>   
-                    <form action='/editEmpPage' method='post'><td><button name="emp_id" type="submit" value='{{ row[0] }}' class="btn warning">Edit</button></td></form>
-                    <form action='/deleteEmp'  method='post'><td><button name="emp_id" type="submit" value='{{ row[0] }}' class="btn danger">Delete</button></td></form>
+                    <form action='/editEmpPage' method='post'><td><button name="emp_id" type="submit" value='{{ emp_id }}' class="btn warning">Edit</button></td></form>
+                    <form action='/deleteEmp'  method='post'><td><button name="emp_id" type="submit" value='{{ emp_id }}' class="btn danger">Delete</button></td></form>
                     </tr>
                 </table>
             
