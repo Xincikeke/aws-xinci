@@ -163,7 +163,7 @@ def showData():
        hiringDate = i[9]
        
     cursor.close()   
-    return render_template('searched.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
+    return render_template('employeeInfo.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
 
 # search  #
 
