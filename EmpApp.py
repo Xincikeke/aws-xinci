@@ -122,7 +122,7 @@ def editEmp():
     homeAdd = request.form['homeAdd']
 
 
-    update_sql = "UPDATE employee SET emp_id= %s, first_name= %s, last_name= %s, emailAddress= %s, phoneNum= %s, homeAdd= %s, pri_skill= %s WHERE emp_id= %s"
+    update_sql = "UPDATE employee SET emp_id = %s, first_name = %s, last_name = %s, emailAddress = %s, phoneNum = %s, homeAdd = %s, pri_skill = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (emp_id, first_name, last_name, email, phoneNum, homeAdd, pri_skill))
     db_conn.commit()
