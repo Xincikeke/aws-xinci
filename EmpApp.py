@@ -49,7 +49,7 @@ def editEmpPage():
        hiringDate = i[7]
 
     cursor.close()
-     return render_template('editEmp.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, hiringDate=hiringDate)
+    return render_template('editEmp.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, hiringDate=hiringDate)
 
 
 
