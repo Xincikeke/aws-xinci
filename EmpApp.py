@@ -33,7 +33,7 @@ def addEmpPage():
 @app.route("/editEmpPage", methods=['POST'])
 def editEmpPage():
     emp_id = request.form['emp_id']
-    get_sql = "SELECT emp_id, last_name, first_name, emailAddress, phoneNum, homeAdd, pri_skill, payRollID, attendanceID, hiringDate FROM employee WHERE emp_id = %s"
+    get_sql = "SELECT emp_id, last_name, first_name, emailAddress, phoneNum, homeAdd, pri_skill, hiringDate FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(get_sql, (emp_id))
