@@ -67,25 +67,25 @@
             
             <form action="/editEmp"  autocomplete="on" method="POST">
                 <label for="emp_id">Employee ID</label> : {{ emp_id }}
-                <input type="hidden" id="emp_id" name="emp_id" value={{ emp_id }}>
+                <input type="hidden" id="emp_id" name="emp_id" value={{ emp_id }} required>
                 </br></br>
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" value={{ first_name }}>
+                <input type="text" id="fname" name="firstname" value={{ first_name }} required>
                 </br></br>
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" value={{ last_name }}>
+                <input type="text" id="lname" name="lastname" value={{ last_name }} required>
                 </br></br>
                 <label for="PrimarySkills">Primary Skills</label>
-                <input type="text" id="pri_skill" name="pri_skill" value={{ pri_skill }}>
+                <input type="text" id="pri_skill" name="pri_skill" value={{ pri_skill }} required>
                 </br></br>
                 <label for="email">Email Address</label>
-                <input type="text" id="email" name="emailAdd" value={{ emailAddress }}>
+                <input type="text" id="email" name="emailAdd" value={{ emailAddress }} required>
                 </br></br>
                 <label for="phoneNum">Contact Number</label>
-                <input type="text" id="phoneNum" name="phoneNum" value={{ phoneNum }}>
+                <input type="text" id="phoneNum" name="phoneNum" value={{ phoneNum }} required>
                 </br></br>
                 <label for="homeAdd">Home Address</label>
-                <input type="text" id="homeAdd" name="homeAdd">
+                <input type="text" id="homeAdd" name="homeAdd" required>
                 </br></br>
                 <label for="hiringDate">Hiring Date</label> : {{ hiringDate }}
                 <input  type="submit" autocomplete="on" value="Update"></br>
