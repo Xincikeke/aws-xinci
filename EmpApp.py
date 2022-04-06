@@ -33,7 +33,7 @@ def addEmpPage():
 @app.route("/editEmpPage", methods=['POST'])
 def editEmpPage():
     emp_id = request.form['emp_id']
-    get_sql = "SELECT emp_id, last_name, first_name, emailAddress,phoneNum, homeAdd, pri_skill, payRollID,attendanceID, hiringDate FROM employee WHERE emp_id = %s"
+    get_sql = "SELECT emp_id, last_name, first_name, emailAddress, phoneNum, homeAdd, pri_skill, payRollID, attendanceID, hiringDate FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(get_sql, (emp_id))
@@ -46,12 +46,10 @@ def editEmpPage():
        phoneNum = i[4]
        homeAdd = i[5]
        pri_skill = i[6]
-       payRollID = i[7]
-       attendanceID = i[8]
-       hiringDate = i[9]
+       hiringDate = i[7]
 
     cursor.close()
-     return render_template('editEmp.html',emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, hiringDate=hiringDate)
+     return render_template('editEmp.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, hiringDate=hiringDate)
 
 
 
@@ -165,7 +163,7 @@ def showData():
        hiringDate = i[9]
        
     cursor.close()   
-    return render_template('searched.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, hiringDate=hiringDate)
+    return render_template('searched.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
 
 # search  #
 
