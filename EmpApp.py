@@ -97,11 +97,11 @@ def editEmp():
     last_name = request.form['lastname']
     pri_skill = request.form['pri_skill']
     email = request.form['emailAdd']
-    cotactNum = request.form['contactNum']
+    phoneNum = request.form['phoneNum']
     homeAdd = request.form['homeAdd']
 
 
-    update_sql = "UPDATE employee SET first_name= %s , last_name= %s , emailAddress= %s , cotactNum= %s , homeAdd= %s,pri_skill= %s WHERE emp_id= %s"
+    update_sql = "UPDATE employee SET first_name= %s , last_name= %s , emailAddress= %s , phoneNum= %s , homeAdd= %s,pri_skill= %s WHERE emp_id= %s"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
