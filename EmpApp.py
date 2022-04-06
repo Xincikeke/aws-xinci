@@ -174,6 +174,11 @@ def deleteEmp():
 
 
 #Attendance#
+#route#
+@app.route("/viewAllAttendance", methods=['GET', 'POST'])
+def page3():
+    return render_template('allAttendance.html')
+
 #DisplayAll#
 @app.route("/DisplayAll", methods=['POST'])
 def DisplayAll():
@@ -182,6 +187,53 @@ def DisplayAll():
     a = cursor.fetchall()
     return render_template('allAttendance.html', data=a)
 
+#search#
+@app.route("/DisplayAttendance", methods=['POST'])
+def DisplayAttendance():
 
+    attendanceid = request.form['attendanceid']
+    select_sql = "SELECT attendance_id, emp_name, date, time_in, time_out, benefit from timeandattendance WHERE attendance_id = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(select_sql, (attendanceid))
+    db_conn.commit()
+
+    for a in cursor:
+        attendance_id = a[0]
+        emp_name = a[1]
+        date = a[2]
+        time_in = a[3]
+        time_out = a[4]
+        benefit = a[5]
+
+    cursor.close()
+    return render_template('displayEmployeeAttendance.html', attendance_id=attendance_id, emp_name=emp_name,
+                           date=date, time_in=time_in, time_out=time_out, benefit=benefit)
+
+#Add#
+@app.route("/AddAttendance", methods=['POST'])
+def AddAttendance():
+
+    attendance_id = request.form['attendance_id']
+    emp_name = request.form['emp_name']
+    date = request.form['date']
+    time_in = request.form['time_in']
+    time_out = request.form['time_out']
+    benefit = request.form['benefit']
+
+    insert_sql = "INSERT INTO timeandattendance VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+
+        cursor.execute(insert_sql, (attendance_id, emp_name, date, time_in, time_out, benefit))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+        print("all modification done...")
+        return render_template('attendanceform.html')
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
