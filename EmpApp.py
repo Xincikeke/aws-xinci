@@ -63,7 +63,7 @@ def AddEmp():
     last_name = request.form['lastname']
     pri_skill = request.form['pri_skill']
     email = request.form['emailAdd']
-    cotactNum = request.form['homeAdd']
+    cotactNum = request.form['contactNum']
     homeAdd = request.form['homeAdd']
     hiringDate = request.form['hiringDate']
     payrollID = request.form['payrollID']
@@ -152,8 +152,8 @@ def showData():
     
     for i in cursor:
        emp_id = i[0]
-       last_name = i[1]
-       first_name = i[2]
+       first_name = i[1]
+       last_name = i[2]
        emailAddress = i[3]
        phoneNum = i[4]
        homeAdd = i[5]
@@ -163,7 +163,7 @@ def showData():
        hiringDate = i[9]
        
     cursor.close()   
-    return render_template('searched.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
+    return render_template('searched.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
 
 # search  #
 
