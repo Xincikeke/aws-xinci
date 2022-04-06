@@ -92,7 +92,7 @@ def AddEmp():
 # edit #
 @app.route("/editEmp", methods=['POST'])
 def editEmp():
-    emp_id = request.form['emp_id']
+    
     first_name = request.form['firstname']
     last_name = request.form['lastname']
     pri_skill = request.form['pri_skill']
@@ -101,9 +101,9 @@ def editEmp():
     homeAdd = request.form['homeAdd']
 
 
-        update_sql = "UPDATE employee SET first_name= %s , last_name= %s , emailAddress= %s , phoneNum= %s , homeAdd= %s,pri_skill= %s WHERE emp_id= %s"
+        update_sql = "UPDATE employee SET emp_id= %s, first_name= %s, last_name= %s, emailAddress= %s, phoneNum= %s, homeAdd= %s, pri_skill= %s WHERE emp_id= %s"
         cursor = db_conn.cursor()
-        cursor.execute(update_sql, (first_name, last_name, email, phoneNum, homeAdd, pri_skill))
+        cursor.execute(update_sql, (emp_id, first_name, last_name, email, phoneNum, homeAdd, pri_skill))
         db_conn.commit()
         cursor.close()
 
