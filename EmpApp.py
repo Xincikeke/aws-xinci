@@ -52,10 +52,6 @@ def editEmpPage():
     return render_template('editEmp.html', emp_id=emp_id, last_name=last_name, first_name=first_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, hiringDate=hiringDate)
 
 
-
-   
-
-
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
     emp_id=""
@@ -131,7 +127,7 @@ def editEmp():
     print("all modification done...")
     return render_template('editEmpOutput.html')
 
-#retreve#
+#retreve all#
 @app.route("/fetchdata",methods=['POST'])
 def fetchdata():
     cursor = db_conn.cursor()
@@ -139,7 +135,7 @@ def fetchdata():
     i = cursor.fetchall()
     return render_template('employeeInfo.html', data=i)
 
-
+# search  #
 @app.route("/showData", methods=['POST'])
 def showData():
 
@@ -163,9 +159,9 @@ def showData():
        hiringDate = i[9]
        
     cursor.close()   
-    return render_template('employeeInfo.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
+    return render_template('searchedData.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
 
-# search  #
+
 
 
 #delete#
@@ -178,22 +174,6 @@ def deleteEmp():
     db_conn.commit()
     cursor.close()
     return render_template('deleteEmpOutput.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
