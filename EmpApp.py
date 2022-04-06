@@ -107,7 +107,7 @@ def editEmp():
   
 
     try:
-        cursor.execute(update_sql, (first_name, last_name, emailAddress, phoneNum, homeAdd, pri_skill))
+        cursor.execute(update_sql, (first_name, last_name, email, phoneNum, homeAdd, pri_skill))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
     finally:
