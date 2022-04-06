@@ -136,6 +136,7 @@ and open the template in the editor.
                         <th>Payroll ID</th>
                         <th>Attendance ID</th>
                         <th>Hiring Date</th>
+                        <th colspan='2'>Action</th>
                     </tr>
                     {% for row in data %}
                     <tr>
@@ -151,7 +152,7 @@ and open the template in the editor.
                         <td>{{ row[9] }}</td>
                         </form>   
                     <form action='/editEmpPage' method='post'><td><button name="emp_id" type="submit" value='{{ row[0] }}' class="btn warning">Edit</button></td></form>
-                    <form action='/deleteEmp'  method='post'><td><button name="emp_id" type="submit" value='{{ row[0] }}' class="btn danger">Edit</button></td></form>
+                    <form action='/deleteEmp'  method='post'><td><button name="emp_id" type="submit" value='{{ row[0] }}' class="btn danger">Delete</button></td></form>
                     </tr>
                     {% endfor %}
                 </table>
