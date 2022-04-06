@@ -101,7 +101,7 @@ def editEmp():
     homeAdd = request.form['homeAdd']
 
 
-    update_sql = "UPDATE employee SET first_name= %s , last_name= %s , emailAddress= %s , phoneNum= %s , homeAdd= %s,pri_skill= %s WHERE emp_id= %s"
+    update_sql = "UPDATE employee SET first_name= %s , last_name= %s , emailAddress= %s , cotactNum= %s , homeAdd= %s,pri_skill= %s WHERE emp_id= %s"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -109,7 +109,7 @@ def editEmp():
 
     try:
 
-        cursor.execute(update_sql, (first_name, last_name, emailAddress, cotactNum, homeAdd, pri_skill))
+        cursor.execute(update_sql, (first_name, last_name, emailAddress, phoneNum, homeAdd, pri_skill))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
     finally:
