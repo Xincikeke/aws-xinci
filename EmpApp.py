@@ -161,9 +161,6 @@ def showData():
     cursor.close()   
     return render_template('searchedData.html', emp_id=emp_id, first_name=first_name, last_name=last_name, emailAddress=emailAddress, phoneNum=phoneNum, homeAdd=homeAdd, pri_skill=pri_skill, payRollID=payRollID, attendanceID=attendanceID, hiringDate=hiringDate)
 
-
-
-
 #delete#
 @app.route("/deleteEmp", methods=['GET', 'POST'])
 def deleteEmp():
@@ -174,6 +171,16 @@ def deleteEmp():
     db_conn.commit()
     cursor.close()
     return render_template('deleteEmpOutput.html')
+
+
+#Attendance#
+#DisplayAll#
+@app.route("/DisplayAll", methods=['POST'])
+def DisplayAll():
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT attendance_id, emp_name, date, time_in, time_out, benefit from timeandattendance")
+    a = cursor.fetchall()
+    return render_template('allAttendance.html', data=a)
 
 
 if __name__ == '__main__':
