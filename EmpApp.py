@@ -175,7 +175,7 @@ def deleteEmp():
 
 #Attendance#
 #route#
-@app.route("/AddAttendance", methods=['GET', 'POST'])
+@app.route("/AddAttendancePage", methods=['GET', 'POST'])
 def page():
     return render_template('attendanceform.html')
 
