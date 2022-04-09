@@ -274,7 +274,7 @@ def AddPayroll():
 
 #Show payroll#
 @app.route("/diplayPayroll",methods=['POST'])
-def fetchdata():
+def fetchPayrollData():
     cursor = db_conn.cursor()
     cursor.execute("SELECT Payroll_Id, Employee_Name, Pay_Per_Hour, Total_Hour_Work,Ot_Time, Total_Ot_Time, Total_Salary FROM payroll")
     i = cursor.fetchall()
