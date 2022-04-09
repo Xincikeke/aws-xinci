@@ -245,9 +245,6 @@ def AddAttendance():
         return render_template('attendanceform.html')
     
     #payroll#
-@app.route("/", methods=['GET', 'POST'])
-def home():
-    return render_template('payroll.html')
 
 @app.route("/addPayrollPage", methods=['GET', 'POST'])
 def addPayrollPage():
