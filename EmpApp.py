@@ -250,10 +250,6 @@ def AddAttendance():
 def addPayrollPage():
     return render_template('addPayroll.html')
 
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
-
 #Add payroll#
 @app.route("/addpayroll", methods=['POST'])
 def AddPayroll():
@@ -274,7 +270,7 @@ def AddPayroll():
 
 #Show payroll#
 @app.route("/diplayPayroll",methods=['POST'])
-def fetchdata():
+def fetchPayrollData():
     cursor = db_conn.cursor()
     cursor.execute("SELECT Payroll_Id, Employee_Name, Pay_Per_Hour, Total_Hour_Work,Ot_Time, Total_Ot_Time, Total_Salary, Date FROM payroll")
     i = cursor.fetchall()
