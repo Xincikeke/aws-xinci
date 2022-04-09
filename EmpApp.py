@@ -76,6 +76,12 @@ def AddEmp():
 
         cursor.execute(insert_sql, (emp_id,first_name, last_name, email, cotactNum, homeAdd, pri_skill, payrollID, attdID, hiringDate))
         db_conn.commit()
+        
+        select_sql =  "SELECT emp_id FROM employee WHERE first_name = %s"
+        cursor = db_conn.cursor()
+        cursor.execute(select_sql, (first_name))
+        db_conn.commit()
+            
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
